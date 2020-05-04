@@ -5,5 +5,5 @@
         <li><%= link_to task.id, task %> : <%=task.status %> &gt; <%= task.content %></li>
     <% end %>
 </ul>
-
+<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
 <%= link_to '新規投稿', new_task_path %>
