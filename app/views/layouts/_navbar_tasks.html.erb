@@ -4,9 +4,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportContent">
             <ul class="navbar-nav">
                 <% if logged_in? %>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></a>
-                    </li>
+                    <li class="nav-item dropdown"><%= link_to 'Logout', logout_path, method: :delete %></li>
                 <% else %>
                     <li class="nav-item"><%= link_to 'Sign up', signup_path, class: 'nav-link' %></li>
                     <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
