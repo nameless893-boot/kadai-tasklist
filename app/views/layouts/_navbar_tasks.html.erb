@@ -1,16 +1,11 @@
 <header class="mb-4">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Tasklist</a>
-        <!--<button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarSupportContent">-->
-            <!--<span class="navbar-toggler-icon"></span>-->
-        <!--</button>-->
-        
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportContent">
             <ul class="navbar-nav">
                 <% if logged_in? %>
                     <li class="nav-item"><%= link_to 'User', root_path, class: 'nav-link' %></li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
                         <a class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></a>
                     </li>
                 <% else %>

@@ -1,12 +1,11 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :user_logged_in, only: [:index, :show]
-   before_action :correct_user, only: [:destroy]
+  before_action :user_logged_in
+  before_action :correct_user, only: [:destroy]
   
   def index
-    if logged_in?
-      @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-    end
+    @tasks = Task.all
+    @tasks = current_user.tasks.order(id: :desc).page(params[:page])
   end
   
   def show
@@ -24,7 +23,7 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'Taskが投稿されませんでした'
-      render 'tasks/index'
+      render 'edit'
     end
   end
   
