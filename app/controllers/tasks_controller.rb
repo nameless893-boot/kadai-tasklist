@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :user_logged_in
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :destroy]
   
   def index
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
@@ -30,7 +30,6 @@ class TasksController < ApplicationController
   end
   
   def update
-
     if @task.update(task_params)
       flash[:success] = 'Taskが更新されました'
       redirect_to @task
